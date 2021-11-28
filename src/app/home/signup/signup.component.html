@@ -1,0 +1,111 @@
+<h4 class="text-center mt-1"> Como você deseja ajudar?</h4>
+
+<div class="text-center">
+    <div class="d-inline p-2">
+        <input name="form" [(ngModel)]="radioForm" type="radio" value="ong" label="ong" id="ong"> 
+        <label for="ong"><b>ONG</b></label>
+    </div>
+    <div class="d-inline p-2">
+        <input name="form" [(ngModel)]="radioForm" type="radio" value="doador" label="doador" id="doador">
+        <label for="doador"><b>Doador</b></label>
+    </div>
+</div>
+
+<div *ngIf="radioForm == 'ong'">
+    <form [formGroup]="signUpFormONG" class="form mt-4" (submit)="signUp()">
+       
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormONG?.get('fullName')?.errors?.required" text="Nome ONG é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('fullName')?.errors?.minlength" text="Nome ONG deve ser maior que 2 caracteres!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('fullName')?.errors?.maxlength" text="Nome ONG deve ser menor que 60 caracteres!"></ap-vmessage>
+            <input formControlName="fullName" placeholder="Nome ONG" class="form-control">
+        </div>
+
+        <div class="form-group mb-2">
+            <ap-vmessage *ngIf="signUpFormONG?.get('email')?.errors?.required" text="E-mail é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('email')?.errors?.email" text="E-mail inválido!"></ap-vmessage>
+            <input #inputEmail formControlName="email" placeholder="E-mail" class="form-control"  >
+        </div>
+    
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormONG?.get('phone')?.errors?.required" text="Telefone é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('phone')?.errors?.pattern" text="Telefone inválido!"></ap-vmessage>
+            <input formControlName="phone" placeholder="Telefone" class="form-control">
+        </div>
+        
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormONG?.get('representante')?.errors?.required" text="Nome do Representante é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('representante')?.errors?.minlength" text="Nome do Representante deve ser maior que 2 caracteres!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('representante')?.errors?.maxlength" text="Nome do Representante deve ser menor que 60 caracteres!"></ap-vmessage>
+            <input formControlName="representante" placeholder="Nome do Representante" class="form-control">
+        </div>
+
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormONG?.get('finalidade')?.errors?.required" text="Finalidade é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('finalidade')?.errors?.minlength" text="Finalidade deve ser maior que 2 caracteres!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('finalidade')?.errors?.maxlength" text="Finalidade deve ser menor que 60 caracteres!"></ap-vmessage>
+            <input formControlName="finalidade" placeholder="Finalidade" class="form-control">
+        </div>
+
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormONG?.get('registro')?.errors?.required" text="Registro é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('registro')?.errors?.minlength" text="Registro deve ser maior que 2 caracteres!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('registro')?.errors?.maxlength" text="Registro deve ser menor que 60 caracteres!"></ap-vmessage>
+            <input formControlName="registro" placeholder="Registro" class="form-control">
+        </div>
+
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormONG?.get('password')?.errors?.required" text="Senha é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('password')?.errors?.minlength" text="Senha deve ser maior que 5 caracteres!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormONG?.get('password')?.errors?.maxlength" text="Senha deve ser menor que 30 caracteres!"></ap-vmessage>
+            <input formControlName="password" type="password" placeholder="Senha" class="form-control">
+        </div>
+    
+        <div class="text-center">
+            <button [disabled]="signUpFormONG.invalid || signUpFormONG.pending" class="btn btn-primary btn-block">Registrar</button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="radioForm == 'doador'">
+    <form [formGroup]="signUpFormDoador" class="form mt-4" (submit)="signUp()">
+       
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormDoador?.get('fullName')?.errors?.required" text="Nome Completo é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormDoador?.get('fullName')?.errors?.minlength" text="Nome Completo deve ser maior que 2 caracteres!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormDoador?.get('fullName')?.errors?.maxlength" text="Nome Completo deve ser menor que 60 caracteres!"></ap-vmessage>
+            <input formControlName="fullName" placeholder="Nome Completo" class="form-control">
+        </div>
+
+        <div class="form-group mb-2">
+            <ap-vmessage *ngIf="signUpFormDoador?.get('email')?.errors?.required" text="E-mail é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormDoador?.get('email')?.errors?.email" text="E-mail inválido!"></ap-vmessage>
+            <input #inputEmail formControlName="email" placeholder="E-mail" class="form-control"  >
+        </div>
+    
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormDoador?.get('phone')?.errors?.required" text="Telefone é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormDoador?.get('phone')?.errors?.pattern" text="Telefone inválido!"></ap-vmessage>
+            <input formControlName="phone" placeholder="Telefone" class="form-control">
+        </div>
+
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormDoador?.get('cpf')?.errors?.required" text="CPF é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormDoador?.get('cpf')?.errors?.pattern" text="CPF inválido!"></ap-vmessage>
+            <input formControlName="cpf" placeholder="CPF" class="form-control">
+        </div>
+
+        <div class="form-group mt-2 mb-2">
+            <ap-vmessage *ngIf="signUpFormDoador?.get('password')?.errors?.required" text="Senha é obrigatório!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormDoador?.get('password')?.errors?.minlength" text="Senha deve ser maior que 5 caracteres!"></ap-vmessage>
+            <ap-vmessage *ngIf="signUpFormDoador?.get('password')?.errors?.maxlength" text="Senha deve ser menor que 30 caracteres!"></ap-vmessage>
+            <input formControlName="password" type="password" placeholder="Senha" class="form-control">
+        </div>
+    
+        <div class="text-center">
+            <button [disabled]="signUpFormDoador.invalid || signUpFormDoador.pending" class="btn btn-primary btn-block">Registrar</button>
+        </div>
+    </form>
+
+</div>
+
