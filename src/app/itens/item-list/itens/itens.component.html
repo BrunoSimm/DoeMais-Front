@@ -1,0 +1,19 @@
+<p class="text-center text-muted" *ngIf="!itens.length">
+    Desculpe, nenhum item cadastrado.
+</p>
+
+<ol class="list-unstyled">
+    <li *ngFor="let cols of rows" class="row no-gutters">
+        <div *ngFor="let item of cols" class="col-4" apDarkenOnHover>
+            <ap-card [title]="item.name">
+                <ap-item
+                    [url]="item.image" 
+                    [description]="item.description">
+                </ap-item>
+                <div class="text-center p-1">
+                    <button type="button" class="btn btn-primary">Solicitar Item</button>
+                </div>
+            </ap-card>
+        </div>
+    </li>
+</ol>

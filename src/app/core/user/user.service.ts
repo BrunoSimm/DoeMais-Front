@@ -3,6 +3,7 @@ import { BehaviorSubject} from 'rxjs';
 import { TokenService } from '../token/token.service';
 import { User } from './user';
 import jwtDecode from 'jwt-decode';
+import { NewUserONG } from 'src/app/home/signup/new-user-ong';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class UserService {
   private fakeUser = null!;
   private userName: string = '';
 
-  private userSubject = new BehaviorSubject<User>(this.fakeUser);
+  private userSubject = new BehaviorSubject<NewUserONG>(this.fakeUser);
 
   constructor(private tokenService: TokenService) { 
     if(this.tokenService.hasToken()){
@@ -30,8 +31,8 @@ export class UserService {
 
   private decodeAndNotify(){
     const token = this.tokenService.getToken();
-    const user = jwtDecode(token!) as User;
-    this.userName = user.name;
+    const user = jwtDecode(token!) as NewUserONG;
+    this.userName = user.fullName;
     this.userSubject.next(user);
   }
 

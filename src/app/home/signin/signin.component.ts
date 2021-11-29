@@ -22,7 +22,7 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, ]],
       password: ['', Validators.required]
     });
     this.loginForm.reset();
@@ -34,7 +34,7 @@ export class SigninComponent implements OnInit {
 
     this.authService.authenticate(email,password)
       .subscribe(() => { //Sucesso
-        this.router.navigate(['dashboard']); //TODO -> FAZER DASHBOARD
+        this.router.navigate(['dashboard', 'ong']); //TODO -> FAZER DASHBOARD
       }, () => {//Erro
         alert("ERRO! E-mail ou Senha inválidos!")
         this.loginForm.reset();

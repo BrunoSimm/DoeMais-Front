@@ -5,6 +5,80 @@
 export const environment = {
   production: false,
   API_URL: 'http://localhost:3000',
+  itens_fake:  [
+    {
+        name: "Carro em Pó",
+        description: "carro",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+    {
+        name: "Sabão em Pó",
+        description: "Para lavar roupa",
+        image: "https://i0.wp.com/www.felizmelhoridade.com.br/wp-content/uploads/2019/08/iStock-590146468.jpg?fit=1024%2C683&ssl=1",
+        active: true
+    },
+  ],
 };
 
 /*

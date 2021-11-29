@@ -7,5 +7,5 @@ export interface NewUserONG {
     representante: string,
     registro: string,
     dominio: string,
-    estadoDaConta: boolean // {Ativa, Inativa, Bloqueada}
+    estadoDaConta: string // {Ativa, Inativa, Bloqueada}
 }

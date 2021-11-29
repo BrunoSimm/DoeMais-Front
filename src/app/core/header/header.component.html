@@ -1,18 +1,67 @@
-<header class="fixed-top">
-    <nav class="navbar navbar-light bg-white text-center">
-        <div class="col-md-6 mb-2">
-            <img class="img-fluid d-none d-sm-block"
-                src="/assets/img/logo_doe+.png" alt="Welcome">
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doe+</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+</head>
+
+<body>
+    <div>
+        <div class="header-blue">
+            <div class="navbar-header">
+                <a [routerLink]="['']">
+                    <img class="img-fluid d-none d-sm-block" src="/assets/img/logo-new.png" alt="Welcome">
+                </a>
+            </div>
+
+            <div *ngIf="(user$ | async) as user; else login">
+                <nav class="navbar navbar-default navigation-clean-search">
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <p class="navbar-text">
+                                <a style="color: white;" [routerLink]="['/dashboard', 'ong']"><b>Dashboard</b></a>
+                            </p>
+                            <p class="navbar-text">
+                                <a style="color: white;" [routerLink]="['/itens']"><b>Itens</b></a>
+                            </p>
+                            <p class="navbar-text">
+                                <a style="color: white;" [routerLink]="['/necessidades']"><b>Necessidades</b></a>
+                            </p>
+                            <p class="navbar-text navbar-right">
+                                <a class="btn btn-default action-button" (click)="logout()">
+                                    <i class="fa fa-user-circle mr-1"> 
+                                    </i>
+                                Logout
+                                </a>
+                            </p> 
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+            <ng-template #login>
+                <nav class="navbar navbar-default navigation-clean-search">
+                    <div class="container">
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <p class="navbar-text navbar-right">
+                                <a class="navbar-link login" [routerLink]="['']">Login</a> 
+                                <a class="btn btn-default action-button" role="button" [routerLink]="['signup']">Registrar</a>
+                            </p>
+                        </div>
+    
+                    </div>
+                </nav>
+            </ng-template>
         </div>
-        <div *ngIf="(user$ | async) as user; else login">
-            <i class="fa fa-user-circle mr-1"></i>
-            <a class="mr-1">{{ user?.name }}</a>
-            <a (click)="logout()"><br>(Logout)</a>
-        </div>
-        <ng-template #login>
-            <span class="navbar-text">
-                <button [routerLink]="['']" type="button" class="btn btn-primary btn-sm">Login</button>
-            </span>
-        </ng-template>
-    </nav>
-</header>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>

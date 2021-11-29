@@ -4,9 +4,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { ErrorsModule } from './errors/errors.module';
-import { PhotosModule } from './photos/photos.module';
 import { HomeModule } from './home/home.module';
 import { CoreModule } from './core/core.module';
+import { RouterModule } from '@angular/router';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { ItensModule } from './itens/itens.module';
+import { ItemListModule } from './itens/item-list/item-list.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +18,14 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PhotosModule,
+    RouterModule,
+    ItensModule,
     ErrorsModule,
     HomeModule,
-    CoreModule
+    CoreModule,
+    DashboardModule,
+    ItensModule,
+    ItemListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

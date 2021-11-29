@@ -1,0 +1,27 @@
+<h3 class="text-center">Olá, !</h3>
+
+<div class="text-center d-flex justify-content-center">
+  <div class="card border shadow-0 m-3" style="max-width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><b>Itens</b></h5>
+      <p class="card-text">
+        Verifique os itens já cadastrados na plataforma.
+      </p>
+    </div>
+    <div class="card-footer bg-transparent border-success"><button [routerLink]="['/itens']" type="button" class="btn btn-primary btn-sm">Cadastrar</button></div>
+  </div>
+
+  <div class="card border shadow-0 m-3" style="max-width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><b>Necessidades</b></h5>
+      <p class="card-text">
+        Registre um item como necessário para receber doações!
+      </p>
+    </div>
+    <div class="card-footer bg-transparent border-success">
+      <button [routerLink]="['/dashboard', 'ong']" type="button" class="btn btn-primary btn-sm">Registrar</button>
+    </div>
+  </div>
+</div>
+
+

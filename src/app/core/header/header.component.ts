@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { NewUserONG } from 'src/app/home/signup/new-user-ong';
 import { User } from '../user/user';
 import { UserService } from '../user/user.service';
 
@@ -11,7 +12,7 @@ import { UserService } from '../user/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  user$: Observable<User>;
+  user$: Observable<NewUserONG>;
 
   constructor(private userService: UserService, private router: Router) { 
     this.user$ = userService.getUser();
