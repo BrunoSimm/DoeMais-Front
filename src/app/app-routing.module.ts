@@ -9,6 +9,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './home/signin/signin.component';
 import { SignupComponent } from './home/signup/signup.component';
+import { AddItemComponent } from './itens/add-item/add-item.component';
 import { ItemListComponent } from './itens/item-list/item-list.component';
 import { ItemListResolver } from './itens/item-list/item-list.resolver';
 
@@ -54,6 +55,13 @@ const routes: Routes = [
   {
     path: 'itens',
     component: ItemListComponent, 
+    resolve: {
+      //itens: ItemListResolver //Descomentar depois que endpoint disponível.
+    }
+  },
+  {
+    path: 'itens/add',
+    component: AddItemComponent, 
     resolve: {
       //itens: ItemListResolver //Descomentar depois que endpoint disponível.
     }

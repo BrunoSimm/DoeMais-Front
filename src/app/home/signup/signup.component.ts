@@ -1,12 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PlatformDetectorService } from 'src/app/core/platform-detector/platform-detector.service';
-import { NewUserDoador } from './new-user-doador';
 
+import { NewUserDoador } from './new-user-doador';
 import { NewUserONG } from './new-user-ong';
 import { SignUpService } from './signup.service';
-import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
+
 
 @Component({
   selector: 'app-signup',

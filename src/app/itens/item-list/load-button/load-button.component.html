@@ -3,5 +3,9 @@
 </div>
 
 <ng-template #messageTemplate>
-    <p class="text-center text-muted">Não encontrou o item que buscava? Você pode criar um novo!</p>
+    <p class="text-center text-muted">Não encontrou o item que buscava? 
+        <a [routerLink]="['/itens', 'add']">
+            Você pode criar um novo!
+        </a> 
+    </p>
 </ng-template>
