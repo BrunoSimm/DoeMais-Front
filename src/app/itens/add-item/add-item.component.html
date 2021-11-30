@@ -2,11 +2,15 @@
     <div class="col-md-6">
         <div class="text-center">
             <h3>Cadastrar Item</h3>
-            <form [formGroup]="itemAddForm" class="form mt-4" (submit)="signUp()">
+            <form [formGroup]="itemAddForm" class="form mt-4" (submit)="addItem()">
                 <div class="form-group mt-2 mb-2">
                     <ap-vmessage *ngIf="itemAddForm?.get('name')?.errors?.required" text="Nome é obrigatório!"></ap-vmessage>
                     <ap-vmessage *ngIf="itemAddForm?.get('name')?.errors?.minlength" text="Nome deve ser maior que 2 caracteres!"></ap-vmessage>
                     <ap-vmessage *ngIf="itemAddForm?.get('name')?.errors?.maxlength" text="Nome deve ser menor que 60 caracteres!"></ap-vmessage>
+                    <ap-vmessage
+                        text="Item com este nome já cadastrado!"
+                        *ngIf="itemAddForm.get('name')?.errors?.nameTaken">
+                    </ap-vmessage>
                     <input formControlName="name" placeholder="Nome do Item" class="form-control">
                 </div>
                 

@@ -1,9 +1,10 @@
 <div class="text-center">
-    <h3 class="text-center">Itens disponíveis</h3>
     <button type="button" class="btn btn-primary" [routerLink]="['/itens', 'add']">
-        Cadastrar Item
+        Cadastrar Novo Item
     </button>
 </div>
+
+<h3 class="text-center"><b>Escolha os itens que você necessita para receber doações!</b></h3>
 
 <ap-search 
     (onTyping)="filter = $event" [value]='filter'>

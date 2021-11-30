@@ -1,0 +1,43 @@
+<div *ngIf="!itemEscolhido; else itemSelected" class="text-center">
+    <div class="alert alert-danger" role="alert">
+        <small>Ops! Nenhum item selecionado, <b>escolha um item para criar uma Necessidade!</b></small>
+    </div>
+    <button class="btn btn-primary" [routerLink]="['/itens']"> Lista de Itens</button>
+</div>
+
+<ng-template #itemSelected>
+    <div  class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="text-center">
+                <h3>Cadastrar Necessidade</h3>
+                <ap-card [title]="itemEscolhido.name">
+                    <ap-item
+                        [url]="itemEscolhido.image" 
+                        [description]="itemEscolhido.description">
+                    </ap-item>
+                </ap-card>
+                <h6><b> Descrição do Item: </b> {{itemEscolhido.description}}</h6>
+                <form [formGroup]="necessidadeAddForm" class="form mt-4" (submit)="addNecessidade()">
+                    <div class="form-group mt-2 mb-2">
+                        <ap-vmessage *ngIf="necessidadeAddForm?.get('expectedQuantity')?.errors?.required" text="Quantidade Esperada é obrigatório!"></ap-vmessage>
+                        <ap-vmessage *ngIf="necessidadeAddForm?.get('expectedQuantity')?.errors?.pattern" text="Quantidade Esperada inválida"></ap-vmessage>
+                        <input formControlName="expectedQuantity" placeholder="Quantidade Esperada" class="form-control">
+                    </div>
+            
+                    <div class="form-group mt-2 mb-2">
+                        <ap-vmessage *ngIf="necessidadeAddForm?.get('limitDate')?.errors?.required" text="Data Limite é obrigatório!"></ap-vmessage>
+                        <ap-vmessage *ngIf="necessidadeAddForm?.get('limitDate')?.errors?.pattern" text="Data Limite inválida! Use o formato dd/mm/yyyy"></ap-vmessage>
+                        <ap-vmessage *ngIf="necessidadeAddForm?.get('limitDate')?.errors?.dateFuture" text="Data Limite inválida, utilize uma data no futuro!"></ap-vmessage>
+                        <input formControlName="limitDate" placeholder="Data limite para receber a quantidade esperada" class="form-control">
+                    </div>
+                
+                    <div class="text-center">
+                        <button [disabled]="necessidadeAddForm.invalid || necessidadeAddForm.pending" class="btn btn-primary btn-block">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</ng-template>
+

@@ -1,0 +1,22 @@
+<p class="text-center text-muted" *ngIf="!necessidades.length">
+    Desculpe, nenhuma necessidade cadastrada neste momento.
+</p>
+
+<ol class="list-unstyled">
+    <li *ngFor="let cols of rows" class="row no-gutters">
+        <div *ngFor="let necessidade of cols" class="col-4" apDarkenOnHover>
+            <ap-card [title]="necessidade.name" style="border-radius: 5%;">
+                <ap-necessidade
+                    [url]="necessidade.image" 
+                    [description]="necessidade.description">
+                </ap-necessidade>
+                <div class="text-center p-1">
+                    <p> <b> Quantidade Esperada: {{necessidade.expectedQuantity}}</b> </p> 
+                    <p> <b> Quantidade Atual: {{necessidade.currentQuantity}} </b> </p>
+                    <p> <b> Data Limite: {{necessidade.limitDate}} </b></p>
+                    <button type="button" class="btn btn-primary">Editar Necessidade</button>
+                </div>
+            </ap-card>
+        </div>
+    </li>
+</ol>

@@ -12,6 +12,8 @@ import { SignupComponent } from './home/signup/signup.component';
 import { AddItemComponent } from './itens/add-item/add-item.component';
 import { ItemListComponent } from './itens/item-list/item-list.component';
 import { ItemListResolver } from './itens/item-list/item-list.resolver';
+import { AddNecessidadeComponent } from './necessidades/add-necessidade/add-necessidade.component';
+import { NecessidadeListComponent } from './necessidades/necessidade-list/necessidade-list.component';
 
 
 const routes: Routes = [
@@ -62,6 +64,20 @@ const routes: Routes = [
   {
     path: 'itens/add',
     component: AddItemComponent, 
+    resolve: {
+      //itens: ItemListResolver //Descomentar depois que endpoint disponível.
+    }
+  },
+  {
+    path: 'necessidades',
+    component: NecessidadeListComponent, 
+    resolve: {
+      //itens: ItemListResolver //Descomentar depois que endpoint disponível.
+    }
+  },
+  {
+    path: 'necessidades/add',
+    component: AddNecessidadeComponent, 
     resolve: {
       //itens: ItemListResolver //Descomentar depois que endpoint disponível.
     }

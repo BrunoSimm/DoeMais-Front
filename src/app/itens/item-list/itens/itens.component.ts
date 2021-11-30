@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { NecessidadeService } from 'src/app/necessidades/necessidade/necessidade.service';
 import { Item } from '../../item/item'; 
 
 @Component({
@@ -11,8 +12,10 @@ export class ItensComponent implements OnChanges {
 
   @Input() itens: Item[] = [];
   rows: any[] = [];
+  itemEscolhido!: Item;
+  itemTakenError: boolean = false;
 
-  constructor() { }
+  constructor(private necessidadeService: NecessidadeService, private router: Router) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.itens){
@@ -26,6 +29,30 @@ export class ItensComponent implements OnChanges {
       newRows.push(itens.slice(index, index + 3));
     }
     return newRows;
+  }
+  
+  solicitarNecessidade(item: Item){
+    let result;
+    let exists;
+    //Validar se a ONG já possui a necessidade.
+    result = this.necessidadeService.verifyIfNecessidadeExists(item);
+
+    if (result !== null) {
+      result.subscribe(
+        (response: any) => {
+          exists = response.exists;
+          if(exists == true){
+            //error - Existe uma Necessidade com este item na ONG logada.
+            this.itemTakenError = true;
+          } else {
+            this.itemTakenError = false;
+            this.necessidadeService.bindItemToCreate(item);
+            this.router.navigate(['necessidades', 'add'])
+          }
+        },
+        (error) => {}
+      );
+    }  
   }
 
 }

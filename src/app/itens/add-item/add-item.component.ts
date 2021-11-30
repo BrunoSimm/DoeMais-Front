@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Item } from '../item/item';
+import { ItemNotTakenValidatorService } from '../item/item-not-taken.validator.service';
+import { ItemService } from '../item/item.service';
+
 
 @Component({
   selector: 'add-item',
@@ -10,15 +15,18 @@ export class AddItemComponent implements OnInit {
 
   itemAddForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private itensService: ItemService, private itemNotTakenService: ItemNotTakenValidatorService, private router: Router) { }
 
   ngOnInit(): void {
     this.itemAddForm = this.formBuilder.group({
       name: ['',
-        [
+        [//Validadores sincronos.
           Validators.required,
           Validators.minLength(2), 
           Validators.maxLength(60)
+        ],
+        [//Validadores assincronos.
+          this.itemNotTakenService.checkNameTaken()
         ]
       ],
       description: ['',
@@ -38,7 +46,12 @@ export class AddItemComponent implements OnInit {
     });
   }
 
-  signUp(){
+  addItem(){
+    const item = this.itemAddForm.getRawValue() as Item;
+    console.log(item);
+    this.itensService.addItem(item).subscribe(() => {
+      this.router.navigate(['itens']);
+    });
     /*
     const newUser = this.signUpFormDoador.getRawValue() as NewUserDoador;
     this.signUpService.signUpDoador(newUser)

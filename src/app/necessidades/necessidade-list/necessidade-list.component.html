@@ -1,0 +1,17 @@
+<div class="text-center">
+    <button type="button" class="btn btn-primary" [routerLink]="['/itens']">
+        Cadastrar Nova Necessidade
+    </button>
+    <h3 class="text-center">Suas Necessidades Cadastradas</h3>
+</div>
+
+<ap-search 
+    (onTyping)="filter = $event" [value]='filter'>
+</ap-search>
+
+<necessidades [necessidades]="necessidades | filterByName: filter"></necessidades>
+
+<necessidade-load-button 
+    (click)="load()" 
+    [hasMore]="hasMore">
+</necessidade-load-button>

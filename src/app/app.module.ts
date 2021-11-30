@@ -10,6 +10,10 @@ import { RouterModule } from '@angular/router';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ItensModule } from './itens/itens.module';
 import { ItemListModule } from './itens/item-list/item-list.module';
+import { NecessidadesModule } from './necessidades/necessidades.module';
+import { NecessidadeModule } from './necessidades/necessidade/necessidade.module';
+import { NecessidadeFormModule } from './necessidades/necessidade-form/necessidade-form.module';
+import { NecessidadeListModule } from './necessidades/necessidade-list/necessidade-list.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { ItemListModule } from './itens/item-list/item-list.module';
     CoreModule,
     DashboardModule,
     ItensModule,
-    ItemListModule
+    ItemListModule,
+    NecessidadesModule,
+    NecessidadeModule,
+    NecessidadeFormModule,
+    NecessidadeListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

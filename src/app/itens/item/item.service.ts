@@ -21,4 +21,12 @@ export class ItemService {
             .append('page', page.toString());
         return this.httpClient.get<Item[]>(environment.API_URL + '/itens', { params: params });
     }
+
+    checkNameTaken(name: string){
+        return this.httpClient.get(environment.API_URL + '/itens/exists/' + name);
+    } 
+    
+    addItem(item: Item){
+        return this.httpClient.post(environment.API_URL + '/itens', item);
+    }
 }
