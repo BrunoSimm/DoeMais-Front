@@ -21,8 +21,8 @@ export class ItemListComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private itemService: ItemService){ }
   
   ngOnInit(): void {
-    //this.itens = this.activatedRoute.snapshot.data.itens; // TODO -> REQUISIÇÃO BACK-END PAGINADO
-    this.itens = environment.itens_fake;
+    this.itens = this.activatedRoute.snapshot.data.itens; // TODO -> REQUISIÇÃO BACK-END PAGINADO
+    //this.itens = environment.itens_fake;
   }
 
   ngOnDestroy(): void {

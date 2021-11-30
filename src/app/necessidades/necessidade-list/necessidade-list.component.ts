@@ -21,8 +21,7 @@ export class NecessidadeListComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private necessidadeService: NecessidadeService){ }
   
   ngOnInit(): void {
-    //this.necessidades = this.activatedRoute.snapshot.data.necessidades; // TODO -> REQUISIÇÃO BACK-END PAGINADO
-    this.necessidades = environment.necessidades_fake;
+    this.necessidades = this.activatedRoute.snapshot.data.necessidades; // TODO -> REQUISIÇÃO BACK-END PAGINADO
   }
 
   ngOnDestroy(): void {

@@ -65,7 +65,6 @@ export class AddItemComponent implements OnInit {
             this.itemExistsError = true;
           } else {
             this.itemExistsError = false;
-            environment.itens_fake.push(item);
             this.itensService.addItem(item).subscribe(() => {
               this.router.navigate(['/itens'])
             }, err => this.router.navigate(['/itens']) );

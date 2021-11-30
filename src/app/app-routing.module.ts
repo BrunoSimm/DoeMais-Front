@@ -14,6 +14,7 @@ import { ItemListComponent } from './itens/item-list/item-list.component';
 import { ItemListResolver } from './itens/item-list/item-list.resolver';
 import { AddNecessidadeComponent } from './necessidades/add-necessidade/add-necessidade.component';
 import { NecessidadeListComponent } from './necessidades/necessidade-list/necessidade-list.component';
+import { NecessidadeListResolver } from './necessidades/necessidade-list/necessidade-list.resolver';
 
 
 const routes: Routes = [
@@ -58,7 +59,7 @@ const routes: Routes = [
     path: 'itens',
     component: ItemListComponent, 
     resolve: {
-      //itens: ItemListResolver //Descomentar depois que endpoint disponível.
+      itens: ItemListResolver //Descomentar depois que endpoint disponível.
     }
   },
   {
@@ -72,17 +73,13 @@ const routes: Routes = [
     path: 'necessidades',
     component: NecessidadeListComponent, 
     resolve: {
-      //itens: ItemListResolver //Descomentar depois que endpoint disponível.
+      necessidades: NecessidadeListResolver //Descomentar depois que endpoint disponível.
     }
   },
   {
     path: 'necessidades/add',
     component: AddNecessidadeComponent, 
-    resolve: {
-      //itens: ItemListResolver //Descomentar depois que endpoint disponível.
-    }
   },
-  //{ path: 'p/add', component: PhotoFormComponent},
   { path: '**', component: NotFoundComponent},
 ];
 

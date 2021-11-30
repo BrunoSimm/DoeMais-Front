@@ -46,7 +46,6 @@ export class NecessidadeService {
             limitDate: necessidade.limitDate,
             status: necessidade.status
         }
-        environment.necessidades_fake.push(fakeNecessidade);
         return this.httpClient.post(environment.API_URL + '/necessidades', necessidade);
     }
 
