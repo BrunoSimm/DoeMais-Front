@@ -1,7 +1,4 @@
-<ap-card>
-
     <form class="form mt-4" [formGroup]="loginForm" (submit)="login()">
-    
         <div class="form-group">
             <ap-vmessage *ngIf="loginForm?.get('email')?.errors?.required" text="E-mail é obrigatório!"></ap-vmessage>
             <ap-vmessage *ngIf="loginForm?.get('email')?.errors?.email" text="E-mail inválido!"></ap-vmessage>
@@ -32,6 +29,4 @@
     <div class="text-center">
         <br><p>Não possui cadastro?<br> <a [routerLink]="['signup']">Registre-se agora!</a></p>
     </div>
-   
-</ap-card>
 

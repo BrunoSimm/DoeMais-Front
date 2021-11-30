@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { Item } from '../item/item';
 import { ItemNotTakenValidatorService } from '../item/item-not-taken.validator.service';
 import { ItemService } from '../item/item.service';
@@ -14,6 +15,7 @@ import { ItemService } from '../item/item.service';
 export class AddItemComponent implements OnInit {
 
   itemAddForm!: FormGroup;
+  itemExistsError: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private itensService: ItemService, private itemNotTakenService: ItemNotTakenValidatorService, private router: Router) { }
 
@@ -26,7 +28,7 @@ export class AddItemComponent implements OnInit {
           Validators.maxLength(60)
         ],
         [//Validadores assincronos.
-          this.itemNotTakenService.checkNameTaken()
+          //this.itemNotTakenService.checkNameTaken()
         ]
       ],
       description: ['',
@@ -48,16 +50,30 @@ export class AddItemComponent implements OnInit {
 
   addItem(){
     const item = this.itemAddForm.getRawValue() as Item;
-    console.log(item);
-    this.itensService.addItem(item).subscribe(() => {
-      this.router.navigate(['itens']);
-    });
-    /*
-    const newUser = this.signUpFormDoador.getRawValue() as NewUserDoador;
-    this.signUpService.signUpDoador(newUser)
-      .subscribe(() => {
-      this.router.navigate(['']);
-    }, err => console.log(err));*/
+
+    let result;
+    let exists;
+    //Validar se Item já existe.
+    result = this.itensService.checkNameTaken(item.name);
+
+    if (result !== null) {
+      result.subscribe(
+        (response: any) => {
+          exists = response.exists;
+          if(exists == true){
+            //error - Existe um Item com o nome escolhido.
+            this.itemExistsError = true;
+          } else {
+            this.itemExistsError = false;
+            environment.itens_fake.push(item);
+            this.itensService.addItem(item).subscribe(() => {
+              this.router.navigate(['/itens'])
+            }, err => this.router.navigate(['/itens']) );
+          }
+        },
+        (error) => {this.router.navigate(['/itens'])}
+      );
+    }
   }
 
 }

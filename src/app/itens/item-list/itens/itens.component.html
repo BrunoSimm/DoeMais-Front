@@ -3,7 +3,7 @@
 </p>
 
 <div *ngIf="itemTakenError">
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger text-center" role="alert">
         <small><b>ERRO!</b> Você já possui uma <b>Necessidade</b> com este <b>Item!</b></small>
     </div>
 </div>
@@ -16,14 +16,13 @@
                     [url]="item.image" 
                     [description]="item.description">
                 </ap-item>
-
                <!--
                 <div class="text-center p-1">
                     <button type="button" class="btn btn-primary" [routerLink]="['/necessidades', 'add']">Solicitar Item</button>
                 </div>
                -->
             <div class="text-center p-1">
-                <button type="button" class="btn btn-primary" (click)="solicitarNecessidade(item)">Solicitar Item {{ item.id }}</button>
+                <button type="button" class="btn btn-primary" (click)="solicitarNecessidade(item)">Solicitar Item</button>
             </div>
 
             </ap-card>

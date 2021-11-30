@@ -2,6 +2,11 @@
     <div class="col-md-6">
         <div class="text-center">
             <h3>Cadastrar Item</h3>
+            <div *ngIf="itemExistsError">
+                <div class="alert alert-danger text-center" role="alert">
+                    <small><b>ERRO!</b> Um Item com este <b>Nome já existe!</b></small>
+                </div>
+            </div>
             <form [formGroup]="itemAddForm" class="form mt-4" (submit)="addItem()">
                 <div class="form-group mt-2 mb-2">
                     <ap-vmessage *ngIf="itemAddForm?.get('name')?.errors?.required" text="Nome é obrigatório!"></ap-vmessage>
