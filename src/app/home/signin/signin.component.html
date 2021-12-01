@@ -1,3 +1,8 @@
+    <div *ngIf="userCreatedSucess">
+        <div class="alert alert-success text-center" role="alert">
+            <small><b>Conta criada com sucesso!</b></small>
+        </div>
+    </div>
     <form class="form mt-4" [formGroup]="loginForm" (submit)="login()">
         <div class="form-group">
             <ap-vmessage *ngIf="loginForm?.get('email')?.errors?.required" text="E-mail é obrigatório!"></ap-vmessage>

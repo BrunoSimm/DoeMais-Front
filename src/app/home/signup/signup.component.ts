@@ -18,6 +18,7 @@ export class SignupComponent implements OnInit {
   signUpFormDoador!: FormGroup;
   radioForm: any; //ONG ou Doador
   @ViewChild('inputEmail') inputEmail!: ElementRef<HTMLInputElement>;
+  userCreatedFailure: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -129,16 +130,24 @@ export class SignupComponent implements OnInit {
       const newUser = this.signUpFormDoador.getRawValue() as NewUserDoador;
       this.signUpService.signUpDoador(newUser)
       .subscribe(() => {
+        this.signUpService.setUserCreated(true);
         this.router.navigate(['']);
-      }, err => console.log(err));
+      }, (err) => {
+        this.userCreatedFailure = true;
+        this.signUpService.setUserCreated(false);
+      });
     }
 
     if (this.radioForm == 'ong'){
       const newUserOng = this.signUpFormONG.getRawValue() as NewUserONG;
       this.signUpService.signUpONG(newUserOng)
         .subscribe(() => {
+          this.signUpService.setUserCreated(true);
           this.router.navigate(['']);
-        }, err => console.log(err));
+        }, (err) => {
+          this.userCreatedFailure = true;
+          this.signUpService.setUserCreated(false);
+        });
     }
   }
 

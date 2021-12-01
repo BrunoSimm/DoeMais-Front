@@ -10,6 +10,8 @@ import { NewUserONG } from "./new-user-ong";
 })
 export class SignUpService {
 
+    userCreated: boolean = false;
+
     constructor(private httpClient: HttpClient){}
 
     checkUserNameTaken(userName: string){
@@ -19,7 +21,16 @@ export class SignUpService {
     signUpDoador(newUser: NewUserDoador){
         return this.httpClient.post(environment.API_URL + '/cadastro/doador', newUser);
     }
+
     signUpONG(newUser: NewUserONG){
         return this.httpClient.post(environment.API_URL + '/cadastro/ong', newUser);
+    }
+
+    setUserCreated(userCreated: boolean){
+        this.userCreated = userCreated;
+    }
+
+    getUserCreated(){
+        return this.userCreated;
     }
 }

@@ -35,7 +35,6 @@ const routes: Routes = [
   },
   {
     path: 'dashboard/doador',
-    //canActivate: [AuthGuard],
     //component: DashboardDoadorComponent, 
     component: NotFoundComponent,
     resolve: {
@@ -53,7 +52,7 @@ const routes: Routes = [
     path: 'itens',
     component: ItemListComponent, 
     resolve: {
-      itens: ItemListResolver //Descomentar depois que endpoint disponível.
+      itens: ItemListResolver
     }
   },
   {
@@ -64,7 +63,7 @@ const routes: Routes = [
     path: 'necessidades',
     component: NecessidadeListComponent, 
     resolve: {
-      necessidades: NecessidadeListResolver //Descomentar depois que endpoint disponível.
+      necessidades: NecessidadeListResolver
     }
   },
   {

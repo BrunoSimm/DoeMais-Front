@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { PlatformDetectorService } from 'src/app/core/platform-detector/platform-detector.service';
+import { SignUpService } from '../signup/signup.service';
 
 @Component({
   selector: 'ap-signin',
@@ -13,14 +14,18 @@ export class SigninComponent implements OnInit {
 
   loginForm!: FormGroup;
   @ViewChild('userNameInput') userNameInput!: ElementRef<HTMLInputElement>;
+  userCreatedSucess: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder, 
     private authService: AuthService,
     private router: Router,
-    private platformDetectorService: PlatformDetectorService) { }
+    private signUpService: SignUpService) {
+      this.userCreatedSucess = this.signUpService.getUserCreated();
+     }
 
   ngOnInit(): void {
+    this.userCreatedSucess = this.signUpService.getUserCreated();
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -34,7 +39,8 @@ export class SigninComponent implements OnInit {
 
     this.authService.authenticate(email,password)
       .subscribe(() => { //Sucesso
-        this.router.navigate(['dashboard', 'ong']); //TODO -> FAZER DASHBOARD
+        this.signUpService.setUserCreated(false);
+        this.router.navigate(['dashboard', 'ong']);
       }, () => {//Erro
         alert("ERRO! E-mail ou Senha inválidos!")
         this.loginForm.reset();

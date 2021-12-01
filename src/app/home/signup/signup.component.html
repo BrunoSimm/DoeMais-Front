@@ -12,6 +12,11 @@
 </div>
 
 <div *ngIf="radioForm == 'ong'">
+    <div *ngIf="userCreatedFailure">
+        <div class="alert alert-danger text-center" role="alert">
+            <small><b>ERRO!</b> Tente criar novamente em alguns instantes!</small>
+        </div>
+    </div>
     <form [formGroup]="signUpFormONG" class="form mt-4" (submit)="signUp()">
        
         <div class="form-group mt-2 mb-2">
