@@ -7,8 +7,9 @@ export interface Necessidade {
     idItem: number,
 
     //Atributos Necessidade
-    expectedQuantity: number,
-    currentQuantity: number,
-    limitDate: Date,
+    id: number,
+    quantidade_esperada: number,
+    quantidade_atual: number,
+    prazoLimite: Date,
     status: string
 }

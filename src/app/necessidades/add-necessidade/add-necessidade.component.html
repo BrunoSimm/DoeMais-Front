@@ -10,13 +10,13 @@
         <div class="col-md-6">
             <div class="text-center">
                 <h3>Cadastrar Necessidade</h3>
-                <ap-card [title]="itemEscolhido.name">
+                <ap-card [title]="itemEscolhido.nome">
                     <ap-item
-                        [url]="itemEscolhido.image" 
-                        [description]="itemEscolhido.description">
+                        [url]="itemEscolhido.imagem" 
+                        [description]="itemEscolhido.descricao">
                     </ap-item>
                 </ap-card>
-                <h6><b> Descrição do Item: </b> {{itemEscolhido.description}}</h6>
+                <h6><b> Descrição do Item: </b> {{itemEscolhido.descricao}}</h6>
                 <form [formGroup]="necessidadeAddForm" class="form mt-4" (submit)="addNecessidade()">
                     <div class="form-group mt-2 mb-2">
                         <ap-vmessage *ngIf="necessidadeAddForm?.get('expectedQuantity')?.errors?.required" text="Quantidade Esperada é obrigatório!"></ap-vmessage>

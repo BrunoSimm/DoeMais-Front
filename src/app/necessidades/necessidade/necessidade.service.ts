@@ -36,9 +36,9 @@ export class NecessidadeService {
     
     addNecessidade(necessidade: NewNecessidade){
         let fakeNecessidade = {
-            name: this.itemToCreate.name,
-            description: this.itemToCreate.description,
-            image: this.itemToCreate.image,
+            name: this.itemToCreate.nome,
+            description: this.itemToCreate.descricao,
+            image: this.itemToCreate.imagem,
             active: true,
             idItem: this.itemToCreate.id,
             expectedQuantity: necessidade.expectedQuantity,

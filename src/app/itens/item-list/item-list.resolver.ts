@@ -17,6 +17,6 @@ export class ItemListResolver implements Resolve<Observable<Item[]>> {
   constructor(private service: ItemService){ }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item[]>{
-    return this.service.listItensPaginated(1);
+    return this.service.listItensPaginated(0);
   }
 }

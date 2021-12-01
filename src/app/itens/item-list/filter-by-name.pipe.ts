@@ -12,7 +12,7 @@ export class FilterByName implements PipeTransform {
 
         if(nameQuery) {
             return itens.filter(item =>
-                item.name.toLowerCase().includes(nameQuery)
+                item.nome.toLowerCase().includes(nameQuery)
             );
         } else {
             return itens;

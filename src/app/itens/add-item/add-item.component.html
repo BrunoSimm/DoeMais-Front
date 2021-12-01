@@ -9,27 +9,27 @@
             </div>
             <form [formGroup]="itemAddForm" class="form mt-4" (submit)="addItem()">
                 <div class="form-group mt-2 mb-2">
-                    <ap-vmessage *ngIf="itemAddForm?.get('name')?.errors?.required" text="Nome é obrigatório!"></ap-vmessage>
-                    <ap-vmessage *ngIf="itemAddForm?.get('name')?.errors?.minlength" text="Nome deve ser maior que 2 caracteres!"></ap-vmessage>
-                    <ap-vmessage *ngIf="itemAddForm?.get('name')?.errors?.maxlength" text="Nome deve ser menor que 60 caracteres!"></ap-vmessage>
+                    <ap-vmessage *ngIf="itemAddForm?.get('nome')?.errors?.required" text="Nome é obrigatório!"></ap-vmessage>
+                    <ap-vmessage *ngIf="itemAddForm?.get('nome')?.errors?.minlength" text="Nome deve ser maior que 2 caracteres!"></ap-vmessage>
+                    <ap-vmessage *ngIf="itemAddForm?.get('nome')?.errors?.maxlength" text="Nome deve ser menor que 60 caracteres!"></ap-vmessage>
                     <ap-vmessage
                         text="Item com este nome já cadastrado!"
-                        *ngIf="itemAddForm.get('name')?.errors?.nameTaken">
+                        *ngIf="itemAddForm.get('nome')?.errors?.nameTaken">
                     </ap-vmessage>
-                    <input formControlName="name" placeholder="Nome do Item" class="form-control">
+                    <input formControlName="nome" placeholder="Nome do Item" class="form-control">
                 </div>
                 
                 <div class="form-group mt-2 mb-2">
-                    <ap-vmessage *ngIf="itemAddForm?.get('description')?.errors?.required" text="Descrição é obrigatório!"></ap-vmessage>
-                    <ap-vmessage *ngIf="itemAddForm?.get('description')?.errors?.minlength" text="Descrição deve ser maior que 2 caracteres!"></ap-vmessage>
-                    <ap-vmessage *ngIf="itemAddForm?.get('description')?.errors?.maxlength" text="Descrição deve ser menor que 60 caracteres!"></ap-vmessage>
-                    <input formControlName="description" placeholder="Descrição" class="form-control">
+                    <ap-vmessage *ngIf="itemAddForm?.get('descricao')?.errors?.required" text="Descrição é obrigatório!"></ap-vmessage>
+                    <ap-vmessage *ngIf="itemAddForm?.get('descricao')?.errors?.minlength" text="Descrição deve ser maior que 2 caracteres!"></ap-vmessage>
+                    <ap-vmessage *ngIf="itemAddForm?.get('descricao')?.errors?.maxlength" text="Descrição deve ser menor que 60 caracteres!"></ap-vmessage>
+                    <input formControlName="descricao" placeholder="Descrição" class="form-control">
                 </div>
         
                 <div class="form-group mt-2 mb-2">
-                    <ap-vmessage *ngIf="itemAddForm?.get('image')?.errors?.required" text="Link da imagem é obrigatório!"></ap-vmessage>
-                    <ap-vmessage *ngIf="itemAddForm?.get('image')?.errors?.pattern" text="Link inválido!"></ap-vmessage>
-                    <input formControlName="image" placeholder="URL Imagem" class="form-control">
+                    <ap-vmessage *ngIf="itemAddForm?.get('imagem')?.errors?.required" text="Link da imagem é obrigatório!"></ap-vmessage>
+                    <ap-vmessage *ngIf="itemAddForm?.get('imagem')?.errors?.pattern" text="Link inválido!"></ap-vmessage>
+                    <input formControlName="imagem" placeholder="URL Imagem" class="form-control">
                 </div>
             
                 <div class="text-center">

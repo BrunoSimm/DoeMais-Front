@@ -74,7 +74,7 @@ export class AddNecessidadeComponent implements OnInit {
       var d = limitDate.split("-");
     }
     var d = limitDate.split("/");
-    return new Date(d[2] + '/' + d[1] + '/' + d[0]).toLocaleDateString();
+    return new Date(d[2] + '-' + d[1] + '-' + d[0]);
   }
 
 }

@@ -11,11 +11,14 @@
 <ol class="list-unstyled">
     <li *ngFor="let cols of rows" class="row no-gutters">
         <div *ngFor="let item of cols" class="col-4" apDarkenOnHover>
-            <ap-card [title]="item.name">
-                <ap-item
-                    [url]="item.image" 
-                    [description]="item.description">
-                </ap-item>
+            <ap-card [title]="item.nome">
+                <div style="height: 100%; width: 100%;">
+                    <ap-item
+                        [url]="item.imagem" 
+                        [description]="item.descricao">
+                    </ap-item>
+                </div>
+               
                <!--
                 <div class="text-center p-1">
                     <button type="button" class="btn btn-primary" [routerLink]="['/necessidades', 'add']">Solicitar Item</button>

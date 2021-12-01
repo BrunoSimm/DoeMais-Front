@@ -16,6 +16,6 @@ export class NecessidadeListResolver implements Resolve<Observable<Necessidade[]
   constructor(private service: NecessidadeService){ }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Necessidade[]>{
-    return this.service.listNecessidadesPaginated(1);
+    return this.service.listNecessidadesPaginated(0);
   }
 }

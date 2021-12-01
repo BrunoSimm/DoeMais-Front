@@ -21,7 +21,7 @@ export class AddItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemAddForm = this.formBuilder.group({
-      name: ['',
+      nome: ['',
         [//Validadores sincronos.
           Validators.required,
           Validators.minLength(2), 
@@ -31,14 +31,14 @@ export class AddItemComponent implements OnInit {
           //this.itemNotTakenService.checkNameTaken()
         ]
       ],
-      description: ['',
+      descricao: ['',
         [
           Validators.required,
           Validators.minLength(2), 
           Validators.maxLength(60)
         ]
       ],
-      image: ['',
+      imagem: ['',
         [
           Validators.required,
           Validators.pattern(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
@@ -49,12 +49,17 @@ export class AddItemComponent implements OnInit {
   }
 
   addItem(){
-    const item = this.itemAddForm.getRawValue() as Item;
+    const item: Item = this.itemAddForm.getRawValue() as Item;
+    
+    
+
+
+    console.log("ITEM => " + item.nome);
 
     let result;
     let exists;
     //Validar se Item já existe.
-    result = this.itensService.checkNameTaken(item.name);
+    result = this.itensService.checkNameTaken(item.nome);
 
     if (result !== null) {
       result.subscribe(

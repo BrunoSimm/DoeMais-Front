@@ -1,7 +1,8 @@
 export interface Item {
     id: number,
-    name: string;
-    description: string;
-    image: string,
-    active: boolean
+    nome: string;
+    descricao: string;
+    imagem: string,
+    ativo: boolean,
+    necessidades: any[]
 }

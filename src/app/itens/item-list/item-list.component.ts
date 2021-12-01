@@ -16,12 +16,13 @@ export class ItemListComponent implements OnInit {
   filter: string = '';
  
   hasMore: boolean = true;
-  currentPage: number = 1;
+  currentPage: number = 0;
 
   constructor(private activatedRoute: ActivatedRoute, private itemService: ItemService){ }
   
   ngOnInit(): void {
     this.itens = this.activatedRoute.snapshot.data.itens; // TODO -> REQUISIÇÃO BACK-END PAGINADO
+    console.log(this.itens);
     //this.itens = environment.itens_fake;
   }
 
