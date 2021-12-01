@@ -12,14 +12,15 @@ import { NewUserONG } from 'src/app/home/signup/new-user-ong';
 export class DashboardOngComponent implements OnInit {
 
   user: Observable<NewUserONG>;
+  usuario!: any;
 
   constructor(private router: Router, private userService: UserService) {
     this.user = userService.getUser();
-    console.log(this.user);  
   }
 
   ngOnInit(): void {
-    
+    this.userService.getUser().subscribe(user => this.usuario = user);
+    this.userService.setUserData(this.usuario);
   }
 
 }

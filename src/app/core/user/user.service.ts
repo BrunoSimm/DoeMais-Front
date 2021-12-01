@@ -10,6 +10,7 @@ import { NewUserONG } from 'src/app/home/signup/new-user-ong';
 })
 export class UserService {
   private fakeUser = null!;
+  private userData: any;
   private userName: string = '';
 
   private userSubject = new BehaviorSubject<NewUserONG>(this.fakeUser);
@@ -27,6 +28,14 @@ export class UserService {
 
   getUser(){
     return this.userSubject.asObservable();
+  }
+
+  getUserData(){
+    return this.userData;
+  }
+
+  setUserData(userData:any){
+    this.userData = userData;
   }
 
   private decodeAndNotify(){
