@@ -33,17 +33,11 @@ const routes: Routes = [
       }
     ]
   },
-  /*{ 
-    path: 'user/:userName', 
-    component: PhotoListComponent, 
-    resolve: {
-      photos: PhotoListResolver
-    }
-  },*/
   {
     path: 'dashboard/doador',
     //canActivate: [AuthGuard],
-    component: DashboardDoadorComponent, 
+    //component: DashboardDoadorComponent, 
+    component: NotFoundComponent,
     resolve: {
       user: DashboardResolver
     }
@@ -65,9 +59,6 @@ const routes: Routes = [
   {
     path: 'itens/add',
     component: AddItemComponent, 
-    resolve: {
-      //itens: ItemListResolver //Descomentar depois que endpoint disponível.
-    }
   },
   {
     path: 'necessidades',
